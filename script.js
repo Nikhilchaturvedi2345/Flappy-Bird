@@ -13,8 +13,26 @@ document.body.addEventListener("click", function (e) {
 
         bird.style.top = `${gg}px`;
     }
-
+    
 });
+let up = 1;
+
+
+    document.addEventListener("touchstart",function () {       
+        let abc = setInterval(() => {
+            let fbT = parseInt(window.getComputedStyle(bird, null).getPropertyValue("top"));
+
+            bird.style.top = `${fbT - up}px`;
+            up += 1.5;
+        }, 100);
+        window.abc =abc;
+    })
+    document.addEventListener("touchend",function () {
+        clearInterval(abc);
+    })
+
+
+
 window.onload = function run() {
 
     let bird = document.getElementById("bird");
@@ -23,7 +41,7 @@ window.onload = function run() {
     setInterval(() => {
         let birdTop = parseInt(window.getComputedStyle(bird, null).getPropertyValue("top"));
 
-        if (birdTop < (screen.height - 100)) {
+        if (birdTop < (screen.height - 200)) {
             bird.style.top = `${birdTop + One}px`;            
         }
     }, 150);
