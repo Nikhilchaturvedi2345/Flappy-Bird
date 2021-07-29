@@ -1,0 +1,177 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+@media (min-width:360px) {
+    body {
+        overflow: hidden;
+        height: 100vh;
+        width: 100vw;
+        background: lightgreen;
+        transition: none;
+    }
+    #starting-Page {
+        width: 100vw;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        align-items: center;
+        color: green;
+        background: url("back.jpg")no-repeat center center/cover;
+            transition: all 0.2s;
+
+        /* display: none; */
+    }
+    #info{
+        width: 50px;
+        height: 50px;
+        border: 2px solid red;
+        border-radius: 50%;
+        position: fixed;
+        top: 10px;
+        left: 10px;
+        animation: yoyo 1s linear 1;
+            transition: all 0.2s;
+
+    }
+    #starting-Page h1 {
+        font-size: 55px;
+        width: 100vw;
+        text-align: center;
+        font-family: cursive;
+        position: relative;
+        animation: yoyo 1s linear 1;
+            transition: all 0.2s;
+
+    }
+    @keyframes yoyo {
+        0%{
+            top: -100%;
+        }
+        80%{
+            top: 5%;
+        }
+    }
+    #Logo-img {
+        width: 150px;
+        height: 150px;
+        background: url("img1.png")no-repeat center center/cover;
+        border-radius: 50%;
+        box-shadow: 6px 6px 10px -1px rgba(0, 0, 0, 0.15), -6px -6px 10px -1px rgba(255, 255, 255, 0.7);
+    }
+    #ScoreCard{
+        /* background: rgb(203, 232, 240); */
+        border-radius: 10px;
+
+    }
+    #score{
+        font-size: 25px;
+        text-align: center;
+    }
+    #Highest_score{
+        font-size: 25px;
+        text-align: center;
+
+    }
+    .Option {
+        width: 80px;
+        height: 80px;
+        border-radius: 50%;
+        background: url("img1.png")no-repeat center center/cover;
+        box-shadow: 6px 6px 10px -1px rgba(0, 0, 0, 0.15), -6px -6px 10px -1px rgba(255, 255, 255, 0.7);
+        animation: pop 2s linear infinite,downpop 1s linear 1;
+        margin: 5px;
+        position: relative;
+            transition: all 0.2s;
+
+    }
+    #Option1{
+        background: url("ee.png")no-repeat center center/cover;
+    }
+    #Option2{
+        background: url("sound.png")no-repeat center center/cover;
+    }
+    #Option3{
+        background: url("question.png")no-repeat center center/cover;
+    }
+    @keyframes downpop {
+        0%{
+           bottom: -100%;
+        }
+        80%{
+           bottom: 10%;
+        } 
+    }
+    @keyframes pop {
+        0%, 100% {
+            transform: scale(1);
+        }
+        50% {
+            transform: scale(1.1);
+        }
+    }
+    #Play-on {
+        width: 500vw;
+        height: 100vh;
+        background: url("backPOVER.jpg")no-repeat ;
+        animation: animate 10s linear infinite;
+        position: relative;
+        display: none;
+    }
+    @keyframes animate {
+        0% {
+            right: 0%;
+        }
+        100% {
+            right: 100%;
+        }
+    }
+    #bird {
+        width: 100px;
+        height: 100px;
+        background: url("img1.png")no-repeat center center/cover;
+        position: absolute;
+        top: 0;
+        left: 25px;
+        transition: all 0.2s;
+
+        animation: startbird 5s ease-in 1;
+        display: none;
+
+    }
+    @keyframes startbird {
+        0% {
+            left: 0;
+        }
+    }
+
+    #up_pillar {
+        width: 70px;
+        height: 20vh;
+        background: url("pillartop.png")no-repeat bottom center/cover;
+        position: absolute;
+        top: 0;
+        left: 110%;
+        animation: none;
+        display: none;
+    }
+    #down_pillar {
+        width: 70px;
+        height: 20vh;
+        background: url("pillarbottom.png")no-repeat top center/cover;
+        position: absolute;
+
+        bottom: 0;
+        left: 110%;
+        display: none;
+    }
+    @keyframes krs {
+        100%{
+            left: -50%;
+        }
+    }
+}
