@@ -1,4 +1,4 @@
-let valuu = 200;
+let valuu = 150;
 let score = 0;
 let up_pillar = document.getElementById("up_pillar");
 let down_pillar = document.getElementById("down_pillar");
@@ -19,14 +19,14 @@ window.onload = function run() {
 
     let bird = document.getElementById("bird");
 
-    let One = 30;
+    let One = 20;
     setInterval(() => {
         let birdTop = parseInt(window.getComputedStyle(bird, null).getPropertyValue("top"));
 
         if (birdTop < (screen.height - 100)) {
             bird.style.top = `${birdTop + One}px`;            
         }
-    }, 100);
+    }, 150);
 
 }
 
