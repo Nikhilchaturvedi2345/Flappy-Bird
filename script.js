@@ -23,7 +23,7 @@ let up = 1;
             let fbT = parseInt(window.getComputedStyle(bird, null).getPropertyValue("top"));
 
             bird.style.top = `${fbT - up}px`;
-            up += 1.5;
+            up += 2.5;
         }, 100);
         window.abc =abc;
     })
