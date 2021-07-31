@@ -4,12 +4,13 @@ let up_pillar = document.getElementById("up_pillar");
 let down_pillar = document.getElementById("down_pillar");
 const startingPage = document.getElementById("starting-Page");
 const Playon = document.getElementById("Play-on");
+let kill;
 
 const bird = document.getElementById("bird");
 document.body.addEventListener("click", function (e) {
     let fbT = parseInt(window.getComputedStyle(bird, null).getPropertyValue("top"));
     let gg = fbT - valuu;
-    if (fbT > 50) {
+    if (fbT > 100) {
 
         bird.style.top = `${gg}px`;
     }
@@ -19,16 +20,18 @@ let up = 1;
 
 
     document.addEventListener("touchstart",function () {       
-        let abc = setInterval(() => {
+        let flyfly = setInterval(() => {
             let fbT = parseInt(window.getComputedStyle(bird, null).getPropertyValue("top"));
-
-            bird.style.top = `${fbT - up}px`;
+            if (fbT > 100) {
+                
+                bird.style.top = `${fbT - up}px`;
+            } 
             up += 2.5;
         }, 100);
-        window.abc =abc;
+        window.flyfly = flyfly;
     })
     document.addEventListener("touchend",function () {
-        clearInterval(abc);
+        clearInterval(flyfly);
     })
 
 
@@ -37,14 +40,17 @@ window.onload = function run() {
 
     let bird = document.getElementById("bird");
 
-    let One = 20;
+    let One = 40;
     setInterval(() => {
-        let birdTop = parseInt(window.getComputedStyle(bird, null).getPropertyValue("top"));
-
-        if (birdTop < (screen.height - 200)) {
-            bird.style.top = `${birdTop + One}px`;            
+        if (kill == true) {
+            
+            let birdTop = parseInt(window.getComputedStyle(bird, null).getPropertyValue("top"));
+            
+            if (birdTop < (screen.height* 0.90)) {
+                bird.style.top = `${birdTop + One}px`;            
+            }
         }
-    }, 150);
+        }, 150);
 
 }
 
@@ -80,6 +86,7 @@ function SecondPillarValue(x) {
 function GamePlay() {
 PChange = true;
     let Runn = setInterval(() => {
+        kill = true;
         // Bird Position 
         const BirdTopPosition = parseInt(window.getComputedStyle(bird, null).getPropertyValue("top"));
         const BirdLeftPosition = parseInt(window.getComputedStyle(bird, null).getPropertyValue("left"));
@@ -103,10 +110,12 @@ PChange = true;
         if (DIFFTopleft > 5 && DIFFTopleft < 100 && DIFFTopTOP < 0 || DIFFBottomleft > 0 && DIFFBottomleft < 100 && DIFFBottomTOP < 0) {
             clearInterval(Runn);
             startingPage.style.display = "flex";
-            bird.style.display = "none";
+            // bird.style.display = "none";
+            bird.style.cssText = `    display: none;top: 20px; `
             up_pillar.style.display = "none";
             down_pillar.style.display = "none";
             clearInterval(aa)
+            kill = false;
             PChange = false;
         }
     }, 50);
