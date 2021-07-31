@@ -10,7 +10,7 @@ const bird = document.getElementById("bird");
 document.body.addEventListener("click", function (e) {
     let fbT = parseInt(window.getComputedStyle(bird, null).getPropertyValue("top"));
     let gg = fbT - valuu;
-    if (fbT > 100) {
+    if (fbT > 200) {
 
         bird.style.top = `${gg}px`;
     }
@@ -22,7 +22,7 @@ let up = 1;
     document.addEventListener("touchstart",function () {       
         let flyfly = setInterval(() => {
             let fbT = parseInt(window.getComputedStyle(bird, null).getPropertyValue("top"));
-            if (fbT > 100) {
+            if (fbT > 200) {
                 
                 bird.style.top = `${fbT - up}px`;
             } 

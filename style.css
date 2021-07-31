@@ -73,6 +73,20 @@
         font-size: 25px;
         text-align: center;
     }
+    #mainscore{
+        animation: scoreanimate 5s linear 1;
+    }
+    @keyframes scoreanimate {
+       from{
+           position: absolute;
+           top: 10px;
+           left: 25px;
+       }
+       to{
+           top: initial;
+           left: initial;
+       }
+    }
     #Highest_score{
         font-size: 25px;
         text-align: center;
