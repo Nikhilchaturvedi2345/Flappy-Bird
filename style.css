@@ -25,7 +25,6 @@
         color: green;
         background: url("back.jpg")no-repeat center center/cover;
         transition: all 0.2s;
-        /* display: none; */
     }
     #info {
         width: 50px;
@@ -138,9 +137,10 @@
         width: 500vw;
         height: 100vh;
         background: url("backPOVER.jpg")no-repeat;
-        animation: animate 10s linear infinite;
+        animation: animate 25s linear infinite;
         position: relative;
         display: none;
+        transition: none;
     }
     @keyframes animate {
         0% {

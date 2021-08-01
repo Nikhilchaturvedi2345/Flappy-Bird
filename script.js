@@ -14,12 +14,21 @@ const PlayScore = document.getElementById("PlayScore");
 const mainscore = document.getElementById("mainscore");
 const heigscore = document.getElementById("heigscore");
 
+// Music 
+const GameOverMusic = new Audio("Music/die.mp3");
+const StartingMusic = new Audio("Music/StartingMusic.mp3");
+const PlayingMusic = new Audio("Music/PlayingMusic.mp3");
+const ClickMusic = new Audio("Music/ClickMusic.mp3");
+
 let valuu = 150;
 let score = 0;
 let kill;
 let up = 1;
 let GameOver;
+let Measure = false;
 
+
+StartingMusic.loop = true;
 document.body.addEventListener("click", function (e) {
     let fbT = parseInt(window.getComputedStyle(bird, null).getPropertyValue("top"));
     let gg = fbT - valuu;
@@ -32,6 +41,9 @@ document.body.addEventListener("click", function (e) {
 
 
 document.addEventListener("touchstart", function () {
+    if (Measure) {       
+        ClickMusic.play();
+    }
     let flyfly = setInterval(() => {
         let fbT = parseInt(window.getComputedStyle(bird, null).getPropertyValue("top"));
         if (fbT > 200) {
@@ -49,11 +61,15 @@ document.addEventListener("touchend", function () {
 
 
 window.onload = function run() {
+    
+        StartingMusic.play();
+
     if (localStorage.getItem("FBG_Highest_Score")) {       
         heigscore.innerText = localStorage.getItem("FBG_Highest_Score");
     }
     let bird = document.getElementById("bird");
     let One = 40;
+
 
     setInterval(() => {
         if (kill == true) {
@@ -110,6 +126,7 @@ function GamePlay() {
     PChange = true;
     let Runn = setInterval(() => {
         kill = true;
+        Measure = true;
         // Bird Position 
         const BirdTopPosition = parseInt(window.getComputedStyle(bird, null).getPropertyValue("top"));
         const BirdLeftPosition = parseInt(window.getComputedStyle(bird, null).getPropertyValue("left"));
@@ -128,9 +145,13 @@ function GamePlay() {
 
         const DIFFBottomleft = ((BirdLeftPosition + 100) - DownpillarLeftPosition);
         const DIFFBottomTOP = (DownpillarTopPosition - (BirdTopPosition + 100));
+   
+        StartingMusic.pause();
+            PlayingMusic.play();
 
 
         if (DIFFTopleft > 5 && DIFFTopleft < 100 && DIFFTopTOP < 0 || DIFFBottomleft > 0 && DIFFBottomleft < 100 && DIFFBottomTOP < 0) {
+            GameOverMusic.play();
             clearInterval(Runn);
             startingPage.style.display = "flex";
             // bird.style.display = "none";
@@ -142,6 +163,11 @@ function GamePlay() {
             PChange = false;
             GameOver = false;
             PlayScore.style.display = "none";
+            PlayingMusic.pause();
+            Measure = false;
+            setTimeout(() => {             
+                StartingMusic.play();
+            }, 1000);
         }
     }, 50);
 
