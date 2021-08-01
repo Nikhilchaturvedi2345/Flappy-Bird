@@ -10,11 +10,14 @@ const bird = document.getElementById("bird");
 
 const cancle = document.getElementById("cancle");
 const Option3 = document.getElementById("Option3");
+const PlayScore = document.getElementById("PlayScore");
+const mainscore = document.getElementById("mainscore");
 
 let valuu = 150;
 let score = 0;
 let kill;
 let up = 1;
+let GameOver;
 
 document.body.addEventListener("click", function (e) {
     let fbT = parseInt(window.getComputedStyle(bird, null).getPropertyValue("top"));
@@ -76,11 +79,18 @@ function SecondPillarValue(x) {
 
 // score Function 
 function scoreFunc() {
-    setInterval(() => {
+    let Sinterval = setInterval(() => {
         score++;
+        PlayScore.innerText = `${score}`;
+        mainscore.innerText = `${score}`;
         console.log(score);
-
+        if (GameOver == false) {
+            console.log('Game Over Ho Chuka Hai');
+            clearInterval(Sinterval);
+            return;       
+        }
     }, 100);
+    // return;
 }
 // scoreFunc();
 
@@ -125,6 +135,8 @@ function GamePlay() {
             clearInterval(aa)
             kill = false;
             PChange = false;
+            GameOver = false;
+            PlayScore.style.display = "none";
         }
     }, 50);
 
@@ -133,12 +145,16 @@ function GamePlay() {
 
 
 Option1.addEventListener("click", function () {
+    PlayScore.style.display = "block";
     startingPage.style.display = "none";
     bird.style.display = "block";
     up_pillar.style.cssText = `display: block; animation: krs 3s ease-in infinite;`
     down_pillar.style.cssText = `display: block; animation: krs 3s ease-in infinite;`
     Playon.style.display = "block";
     GamePlay();
+    scoreFunc();
+    GameOver = true;
+    score = 0;
     window.aa = setInterval(() => {
         const TopPillarValue = RandomHeight();
         const BottomPillarValue = SecondPillarValue(TopPillarValue);

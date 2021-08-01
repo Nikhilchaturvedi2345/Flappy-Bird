@@ -11,7 +11,7 @@
         overflow: hidden;
         height: 100vh;
         width: 100vw;
-        background: lightgreen;
+        background: url("backPOVER.jpg")no-repeat center center/cover;
         transition: none;
     }
     #starting-Page {
@@ -23,11 +23,10 @@
         align-items: center;
         color: green;
         background: url("back.jpg")no-repeat center center/cover;
-            transition: all 0.2s;
-
+        transition: all 0.2s;
         /* display: none; */
     }
-    #info{
+    #info {
         width: 50px;
         height: 50px;
         border: 2px solid red;
@@ -36,8 +35,7 @@
         top: 10px;
         left: 10px;
         animation: yoyo 1s linear 1;
-            transition: all 0.2s;
-
+        transition: all 0.2s;
     }
     #starting-Page h1 {
         font-size: 55px;
@@ -46,14 +44,13 @@
         font-family: cursive;
         position: relative;
         animation: yoyo 1s linear 1;
-            transition: all 0.2s;
-
+        transition: all 0.2s;
     }
     @keyframes yoyo {
-        0%{
+        0% {
             top: -100%;
         }
-        80%{
+        80% {
             top: 5%;
         }
     }
@@ -64,28 +61,41 @@
         border-radius: 50%;
         box-shadow: 6px 6px 10px -1px rgba(0, 0, 0, 0.15), -6px -6px 10px -1px rgba(255, 255, 255, 0.7);
     }
-    #ScoreCard{
-        border-radius: 10px;
-
+    #PlayScore{
+        /* width: 100px; */
+        height: auto;
+        background: lightgreen;
+        border-radius: 5px;
+        width: 4rem;
+        text-align: right;
+        /* border: 5px solid blueviolet; */
+        position: fixed;
+        top: 1rem;
+        left: 0;
+        padding: 0.5rem;
+        font-size: 2rem;
+        color: red;
+        display: none;
     }
-    #score{
+    #ScoreCard {
+        border-radius: 10px;
+    }
+    #score {
         color: black;
         font-weight: bolder;
         font-size: 25px;
         text-align: center;
     }
-    #mainscore{
+    #mainscore {
         font-weight: normal;
     }
-
-    #Highest_score{
+    #Highest_score {
         color: black;
         font-weight: bolder;
         font-size: 25px;
         text-align: center;
-
     }
-    #heigscore{
+    #heigscore {
         font-weight: normal;
     }
     .Option {
@@ -94,29 +104,28 @@
         border-radius: 50%;
         background: url("img1.png")no-repeat center center/cover;
         box-shadow: 6px 6px 10px -1px rgba(0, 0, 0, 0.15), -6px -6px 10px -1px rgba(255, 255, 255, 0.7);
-        animation: pop 2s linear infinite,downpop 1s linear 1;
+        animation: pop 2s linear infinite, downpop 1s linear 1;
         margin: 5px;
         display: inline-block;
         position: relative;
-            transition: all 0.2s;
-
+        transition: all 0.2s;
     }
-    #Option1{
+    #Option1 {
         background: url("ee.png")no-repeat center center/cover;
     }
-    #Option2{
+    #Option2 {
         background: url("sound.png")no-repeat center center/cover;
     }
-    #Option3{
+    #Option3 {
         background: url("question.png")no-repeat center center/cover;
     }
     @keyframes downpop {
-        0%{
-           bottom: -100%;
+        0% {
+            bottom: -100%;
         }
-        80%{
-           bottom: 10%;
-        } 
+        80% {
+            bottom: 10%;
+        }
     }
     @keyframes pop {
         0%, 100% {
@@ -129,7 +138,7 @@
     #Play-on {
         width: 500vw;
         height: 100vh;
-        background: url("backPOVER.jpg")no-repeat ;
+        background: url("backPOVER.jpg")no-repeat;
         animation: animate 10s linear infinite;
         position: relative;
         display: none;
@@ -150,17 +159,14 @@
         top: 0;
         left: 25px;
         transition: all 0.2s;
-
         animation: startbird 5s ease-in 1;
         display: none;
-
     }
     @keyframes startbird {
         0% {
             left: 0;
         }
     }
-
     #up_pillar {
         width: 70px;
         height: 20vh;
@@ -176,59 +182,73 @@
         height: 20vh;
         background: url("pillarbottom.png")no-repeat top center/cover;
         position: absolute;
-
         bottom: 0;
         left: 110%;
         display: none;
     }
     @keyframes krs {
-        100%{
+        100% {
             left: -50%;
         }
     }
-
-
-
-
-
-
     /* pop-up card for how to play  */
-    #HTP{
+    #HTP {
         position: absolute;
         width: 90vw;
-        height: 90vh;
         border: 5px solid black;
         top: 50%;
         left: 50%;
         border-radius: 10px;
-        transform: translate(-50%,-50%);
+        transform: translate(-50%, -50%);
         background: brown;
+        overflow: visible;
+        display: none;
     }
-    #HTP h2{
+    #HTP h2 {
         color: yellow;
         font-size: 2.3rem;
         text-align: center;
         padding-top: 2rem;
+        margin-bottom: 2rem;
     }
-    #HTP ul{
-        font-size: 1.7rem;
-        color: yellow;
-        padding: 2rem;
-        list-style-type:square;
-
+    #HTP p {
+        height: 100%;
+        font-size: 2rem;
+        text-align: center;
+        padding: 10px;
+        color: rgb(238, 238, 0);
+        margin-bottom: 2rem;
     }
-    #HTP li{
-        /* list-style-position:inside; */
-        margin: 5px;
-    }
-    
-    #cancle{
+    #cancle {
         width: 3rem;
         height: 3rem;
         border: 4px solid red;
+        background: yellow;
         position: fixed;
-        top: 4px;
-        right: 4px;
+        top: -2px;
+        right: -2px;
         border-radius: 50%;
+    }
+    #cancle::before {
+        content: "";
+        display: block;
+        width: 30px;
+        height: 0.4rem;
+        background: red;
+        position: relative;
+        top: 1.05rem;
+        left: 12%;
+        transform: rotate(45deg);
+    }
+    #cancle::after {
+        content: "";
+        display: block;
+        width: 30px;
+        height: 0.4rem;
+        background: rgb(255, 0, 0);
+        position: absolute;
+        top: 1.08rem;
+        left: 10%;
+        transform: rotate(-45deg);
     }
 }
