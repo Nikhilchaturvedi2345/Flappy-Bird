@@ -12,6 +12,7 @@ const cancle = document.getElementById("cancle");
 const Option3 = document.getElementById("Option3");
 const PlayScore = document.getElementById("PlayScore");
 const mainscore = document.getElementById("mainscore");
+const heigscore = document.getElementById("heigscore");
 
 let valuu = 150;
 let score = 0;
@@ -48,7 +49,9 @@ document.addEventListener("touchend", function () {
 
 
 window.onload = function run() {
-
+    if (localStorage.getItem("FBG_Highest_Score")) {       
+        heigscore.innerText = localStorage.getItem("FBG_Highest_Score");
+    }
     let bird = document.getElementById("bird");
     let One = 40;
 
@@ -83,12 +86,14 @@ function scoreFunc() {
         score++;
         PlayScore.innerText = `${score}`;
         mainscore.innerText = `${score}`;
-        console.log(score);
+        // console.log(score);
+        HScoreFunc(score);
+        heigscore.innerText = localStorage.getItem("FBG_Highest_Score");
         if (GameOver == false) {
-            console.log('Game Over Ho Chuka Hai');
             clearInterval(Sinterval);
-            return;       
+            return;
         }
+
     }, 100);
     // return;
 }
@@ -170,11 +175,28 @@ Option1.addEventListener("click", function () {
 
 
 // How to Play pop-up 
-cancle.addEventListener("click",function () {
+cancle.addEventListener("click", function () {
     const HTP = document.getElementById("HTP");
     HTP.style.display = "none";
 })
 
-Option3.addEventListener("click",function () {
+Option3.addEventListener("click", function () {
     HTP.style.display = "block";
 })
+
+
+// Set The Highest Score 
+function HScoreFunc(scoreX) {
+    if (localStorage.getItem("FBG_Highest_Score")) {
+        if (scoreX > parseInt(localStorage.getItem("FBG_Highest_Score"))) {
+            localStorage.setItem("FBG_Highest_Score", `${scoreX}`);
+        }
+
+    }
+    else {
+        localStorage.setItem("FBG_Highest_Score", `${scoreX}`);
+
+    }
+
+}
+// localStorage.removeItem("FBG_Highest_Score")
