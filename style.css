@@ -133,6 +133,8 @@
             transform: scale(1.1);
         }
     }
+    /* @media (max-width:700px) {
+        
     #Play-on {
         width: 500vw;
         height: 100vh;
@@ -150,6 +152,18 @@
             right: 100%;
         }
     }
+} */
+
+#Play-on {
+    width: 100vw;
+    /* border: 5px solid black; */
+    height: 100vh;
+    background: url("backPOVER.jpg")no-repeat center center/cover;
+    /* animation: animate 25s linear infinite; */
+    position: relative;
+    display: none;
+    transition: none;
+}
     #bird {
         width: 100px;
         height: 100px;
